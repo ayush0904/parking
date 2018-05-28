@@ -1,0 +1,43 @@
+<ion-view>
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">Add Parkmen</span>
+  </div>
+  <ion-content class="has-header-60" overflow-scroll="false">
+    <div class="row">
+      <div class="col">
+        <form name="addParkmen">
+          <div class="list">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Name<sup>*</sup></span>
+              <input type="text" required ng-trim="true" name="username" ng-model="addUser.name" placeholder="Name">
+              <span class="text-color-red f-s-10" ng-show="addParkmen.username.$error.required">Enter name</span>
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Email ID</span>
+              <input type="email" name="email" ng-trim="true" ng-model="addUser.emailID"
+                     placeholder="email ID">
+              <!--<span class="text-color-red f-s-10" ng-show="addParkmen.email.$error.required">Enter email</span>-->
+              <span class="text-color-red f-s-10" ng-show="addParkmen.email.$error.email">Enter valid email Id</span>
+            </label>
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Phone no<sup>*</sup></span>
+              <input type="number" required ng-trim="true" ng-minlength="10" ng-maxlength="10" name="mobileNo"
+                     ng-model="addUser.phoneNo" placeholder="Contact No">
+              <span class="f-s-10 text-color-red" ng-show="addParkmen.mobileNo.$error.required">Mobile No is required</span>
+              <span class="f-s-10 text-color-red" ng-show="addParkmen.mobileNo.$error.minlength">Cannot be less than 10 digit</span>
+              <span class="f-s-10 text-color-red" ng-show="addParkmen.mobileNo.$error.maxlength">Cannot be greater than 10 digit</span>
+
+            </label>
+          </div>
+          <div class="row">
+            <md-button ng-disabled="addParkmen.$invalid" class="md-raised custom-btn-100 f-s-14 h-45" ng-click="addParkingMen()">ADD</md-button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

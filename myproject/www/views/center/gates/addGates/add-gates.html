@@ -1,0 +1,38 @@
+<ion-view>
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">Add Parking Gates</span>
+  </div>
+  <ion-content class="has-header-60" overflow-scroll="false">
+    <div class="row">
+      <div class="col">
+        <form name="addGates">
+          <div class="list">
+            <label class="item item-input item-stacked-label">
+              <span class="input-label">Gate Name</span>
+              <input type="text" required ng-trim="true" ng-model="gateObj.name" name="gateName"
+                     placeholder="Gate Name">
+              <span class="f-s-10 text-color-red" ng-show="addGates.gateName.$error.required">Required!</span>
+            </label>
+
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Gate No
+              </div>
+              <select ng-model="gateObj.gateNo">
+                <option ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13]" value="{{i}}">{{i}}</option>
+              </select>
+            </label>
+          </div>
+          <div class="row">
+            <md-button ng-click="addParkingGate()" class="custom-btn-100 f-s-14 h-45"
+                       ng-disabled="addGates.$invalid">ADD
+            </md-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

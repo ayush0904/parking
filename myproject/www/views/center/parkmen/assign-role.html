@@ -1,0 +1,37 @@
+<ion-view>
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">Assign Parkmen</span>
+  </div>
+  <ion-content class="has-header-60" overflow-scroll="false">
+    <form name="addPass">
+
+      <md-subheader>Select User</md-subheader>
+      <div class="row">
+        <div class="col">
+          <span class="f-s-10">User</span>
+          <md-select placeholder="Select User" ng-model="parkmenObj.userId">
+            <md-option ng-value="users.userId" ng-repeat="users in parkmenUsersArray">{{users.name}}</md-option>
+          </md-select>
+        </div>
+        <div class="col text-center p-t-20">
+          <span class="f-s-30 f-w-700">AS</span>
+        </div>
+        <div class="col">
+          <span class="f-s-10">Role</span>
+          <md-select placeholder="Role" ng-model="parkmenObj.roleId">
+            <md-option ng-value="i" ng-repeat="i in ['Parkmen']">{{i}}</md-option>
+          </md-select>
+        </div>
+      </div>
+      <div class="row">
+        <md-button class="md-raised custom-btn-100 f-s-14 h-45" ng-disabled="parkmenObj.userId.length == 0"
+                   ng-click="addParkmen()">ADD
+        </md-button>
+      </div>
+
+    </form>
+  </ion-content>
+</ion-view>

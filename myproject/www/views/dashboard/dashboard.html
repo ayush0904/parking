@@ -1,0 +1,93 @@
+<ion-view>
+  <!--Bar header-->
+  <div class="bar bar-header custom-navbar">
+    <span class="custom-title">Home</span>
+  </div>
+  <!--content start here-->
+  <ion-content class="has-header-60 custom-background" overflow-scroll="false">
+    <ion-refresher on-refresh="init()"></ion-refresher>
+    <md-subheader class="f-s-12" style="background: #2F6FAD;margin-right: 50%;color: #FFFFFF;">Today's Earnings
+    </md-subheader>
+    <div class="row p-l-0 p-r-0">
+      <div class="col p-l-0">
+        <md-card style="height: 100px" class="m-0 p-10">
+          <img ng-src="img/icons/Car.svg" style="height: 40px !important;">
+          <span class="f-s-15 f-w-700 text-center" style="line-height: 50px;">
+          &#x20b9 {{carCurrentAmount.amountCollected}}
+       </span>
+        </md-card>
+      </div>
+      <div class="col p-l-0">
+        <md-card style="height: 100px" class="m-0 p-10">
+          <img ng-src="img/icons/Bike.svg" style="height: 40px !important;">
+          <span class="f-s-15 f-w-700 text-center" style="line-height: 50px;">
+          &#x20b9 {{bikeCurrentAmount.amountCollected}}
+       </span>
+        </md-card>
+      </div>
+      <div class="col p-l-0">
+        <md-card style="height: 100px" class="m-0 p-10">
+          <img ng-src="img/icons/Cycle.svg" style="height: 40px !important;">
+          <span class="f-s-15 f-w-700 text-center" style="line-height: 50px;">
+          &#x20b9 {{cycleCurrentAmount.amountCollected}}
+       </span>
+        </md-card>
+      </div>
+    </div>
+
+    <md-subheader class="f-s-12" style="background: #2F6FAD;margin-left: 50%;color: #FFFFFF;">Lifetime Earnings
+    </md-subheader>
+    <div class="row">
+      <div class="col">
+        <md-card class="h-100">
+       <span class="f-s-30 f-w-500 text-center" style="line-height: 100px;">
+          &#x20b9 {{totalAmountCollectedLifetime}}
+       </span>
+        </md-card>
+      </div>
+    </div>
+
+    <md-subheader class="f-s-12" style="background: #2F6FAD;margin-right: 50%;color: #FFFFFF;">Live Status
+    </md-subheader>
+    <div class="row p-l-0 p-r-0">
+      <div class="col p-l-0">
+        <md-card style="height: 100px" class="m-0 p-10">
+          <img ng-src="img/icons/Car.svg" style="height: 40px !important;">
+          <span class="f-s-15 f-w-700 text-center" style="line-height: 50px;">
+          {{carCurrentCheckedIn.totalVehicals}}
+       </span>
+        </md-card>
+      </div>
+      <div class="col p-l-0">
+        <md-card style="height: 100px" class="m-0 p-10">
+          <img ng-src="img/icons/Bike.svg" style="height: 40px !important;">
+          <span class="f-s-15 f-w-700 text-center" style="line-height: 50px;">
+          {{bikeCurrentCheckedIn.totalVehicals}}
+       </span>
+        </md-card>
+      </div>
+      <div class="col p-l-0">
+        <md-card style="height: 100px" class="m-0 p-10">
+          <img ng-src="img/icons/Cycle.svg" style="height: 40px !important;">
+          <span class="f-s-15 f-w-700 text-center" style="line-height: 50px;">
+          {{cycleCurrentCheckedIn.totalVehicals}}
+       </span>
+        </md-card>
+      </div>
+    </div>
+
+
+    <md-subheader class="f-s-12" style="background: #2F6FAD;margin-left: 50%;color: #FFFFFF;">Lifetime vehicles Parked
+    </md-subheader>
+    <div class="row">
+      <div class="col">
+        <md-card class="h-100">
+       <span class="f-s-30 f-w-500 text-center" style="line-height: 100px;">
+        {{totalBookingsOfCenter}}
+       </span>
+        </md-card>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

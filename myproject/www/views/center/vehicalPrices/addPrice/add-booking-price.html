@@ -1,0 +1,128 @@
+<ion-view>
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">Add Parking Prices</span>
+  </div>
+  <ion-content class="has-header-60" overflow-scroll="false">
+    <form name="addBookingPrice">
+      <!--show vehical icons-->
+      <div class="row">
+        <div class="col" ng-repeat="type in vehicalTypeArray">
+          <md-card class="custom-card-view text-center">
+            <label class="custom-input-label" style="height: 90px;">
+              <input type="radio" name="vehical" ng-click="buttonClickable()" ng-model="bookingPriceObj.vehicalId"
+                     ng-value="type.vehicalTypeId"/>
+              <img ng-src="img/icons/{{type.vehicalTypeName}}.svg" height="80" width="80">
+            </label>
+          </md-card>
+        </div>
+      </div>
+
+      <!--show vehical type-->
+      <div class="row">
+        <div class="col  text-center">
+        <span class="f-w-700"
+              style="font-size:20px;text-transform: uppercase;color: #39135B;">{{bookingPriceObj.vehicalType}}</span>
+        </div>
+      </div>
+
+      <!--weekdays prices-->
+      <md-subheader>MONDAY TO THURSDAY PRICES</md-subheader>
+      <md-subheader>Base Price</md-subheader>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Amount</span>
+            <input type="number" name="baseAmount" required ng-trim="true" ng-model="bookingPriceObj.baseAmount"
+                   placeholder="ex 10,20">
+            <span class="text-color-red f-s-10" ng-show="addBookingPrice.baseAmount.$error.required">Enter amount</span>
+          </label>
+        </div>
+        <div class="col text-center p-t-20">
+          <span class="f-s-30 f-w-700">For</span>
+        </div>
+        <div class="col">
+          <span class="f-s-10">Hours</span>
+          <md-select placeholder="Hours" ng-model="bookingPriceObj.baseHour">
+            <md-option ng-value="i" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">{{i}}</md-option>
+          </md-select>
+        </div>
+      </div>
+
+      <md-subheader>After Base Price</md-subheader>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Amount</span>
+            <input type="number" required ng-trim="true" name="afterBaseAmount"
+                   ng-model="bookingPriceObj.afterBaseAmount" placeholder="ex 10,20">
+            <span class="text-color-red f-s-10"
+                  ng-show="addBookingPrice.afterBaseAmount.$error.required">Enter amount</span>
+          </label>
+        </div>
+        <div class="col text-center p-t-20">
+          <span class="f-s-30 f-w-700">Per</span>
+        </div>
+        <div class="col">
+          <span class="f-s-10">Hours</span>
+          <md-select placeholder="Hours" ng-model="bookingPriceObj.afterBaseHour">
+            <md-option ng-value="i" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]">{{i}}</md-option>
+          </md-select>
+        </div>
+      </div>
+
+      <!--weekdays prices-->
+      <md-subheader>FRIDAY TO SUNDAY PRICES
+      </md-subheader>
+      <md-subheader>Base Price</md-subheader>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Amount</span>
+            <input type="number" name="baseAmountWeekends" required ng-trim="true" ng-model="bookingPriceObjForWeekends.baseAmount"
+                   placeholder="ex 10,20">
+            <span class="text-color-red f-s-10" ng-show="addBookingPrice.baseAmountWeekends.$error.required">Enter amount</span>
+          </label>
+        </div>
+        <div class="col text-center p-t-20">
+          <span class="f-s-30 f-w-700">For</span>
+        </div>
+        <div class="col">
+          <span class="f-s-10">Hours</span>
+          <md-select placeholder="Hours" ng-model="bookingPriceObjForWeekends.baseHour">
+            <md-option ng-value="i" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">{{i}}</md-option>
+          </md-select>
+        </div>
+      </div>
+
+      <md-subheader>After Base Price</md-subheader>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Amount</span>
+            <input type="number" required ng-trim="true" name="afterBaseAmountWeekends"
+                   ng-model="bookingPriceObjForWeekends.afterBaseAmount" placeholder="ex 10,20">
+            <span class="text-color-red f-s-10"
+                  ng-show="addBookingPrice.afterBaseAmountWeekends.$error.required">Enter amount</span>
+          </label>
+        </div>
+        <div class="col text-center p-t-20">
+          <span class="f-s-30 f-w-700">Per</span>
+        </div>
+        <div class="col">
+          <span class="f-s-10">Hours</span>
+          <md-select placeholder="Hours" ng-model="bookingPriceObjForWeekends.afterBaseHour">
+            <md-option ng-value="i" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]">{{i}}</md-option>
+          </md-select>
+        </div>
+      </div>
+
+      <div class="row">
+        <md-button class="md-raised custom-btn-100 f-s-14 h-45" ng-disabled="addBookingPrice.$invalid || isVehicalTypeSelected" ng-click="addHourBasisPrices()">SET</md-button>
+      </div>
+
+    </form>
+  </ion-content>
+</ion-view>

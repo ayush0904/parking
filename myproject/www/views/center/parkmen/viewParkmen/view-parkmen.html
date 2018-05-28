@@ -1,0 +1,61 @@
+<ion-view>
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">Manage Parkmens</span>
+  </div>
+  <ion-content class="has-header-60 custom-background" overflow-scroll="false">
+    <ion-refresher on-refresh="fetchCenterParkmens()"></ion-refresher>
+    <div ng-if="isParkmenAvailable">
+      <md-card class="custom-card-view p-relative" ng-repeat="parkmen in centerParkmensArray">
+        <div class="row" style="height: 90px;">
+          <div class="col-2 text-center" style="background: #0a9dc7;color: #FFFFFF;width: 80px">
+            <span class="f-w-700" style="font-size: 35px;line-height: 80px;text-transform: uppercase">{{parkmen.name[0] }}</span>
+          </div>
+          <div class="col m-l-10">
+            <span class="f-s-18">{{parkmen.name}}</span><br>
+            <span class="f-s-12">Member Since : {{parkmen.addedOn | date : 'DD-yyyy-MM'}}</span><br>
+            <div class="col">
+              <span>{{parkmen.phoneNo}}</span>
+              <span ng-if="parkmen.isActive == 0" class="badge float-right f-s-10 text-color-white"
+                    style="background:#ffe87c">Inactive</span>
+              <span ng-if="parkmen.isActive == 1" class="badge float-right f-s-10 text-color-white"
+                    style="background:#4cd964">Active</span>
+            </div>
+          </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="row">
+          <div class="col">
+            <md-switch ng-model="parkmen.isActive" ng-change="changeAccountStatus(parkmen.parkmenId,parkmen.isActive)" aria-label="Switch 1">
+            </md-switch>
+          </div>
+          <div class="col text-center">
+            <md-button ng-click="deleteParkmenConfirm($event,parkmen.parkmenId)" class="float-right md-fab md-mini md-primary" style="background: #ff6666 !important;"
+                       aria-label="Use Android">
+              <md-icon>delete</md-icon>
+            </md-button>
+          </div>
+        </div>
+      </md-card>
+    </div>
+    <div ng-if="!isParkmenAvailable" class="m-t-80">
+      <div class="row">
+        <div class="col text-center p-b-0">
+          <img ng-src="img/no-payment-icon.png" height="120" width="120">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center p-t-0">
+          <span class="f-s-18 f-w-500">No Parkmens found</span><br>
+          <span class="f-s-14 text-color-grey">Add and start managing</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+<style>
+
+
+</style>

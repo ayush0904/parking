@@ -1,0 +1,59 @@
+<ion-view>
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">Add Passes</span>
+  </div>
+  <ion-content class="has-header-60" overflow-scroll="false">
+    <form name="addPass">
+      <!--show vehical icons-->
+      <div class="row">
+        <div class="col" ng-repeat="type in vehicalTypeArray">
+          <md-card class="custom-card-view text-center">
+            <label class="custom-input-label" style="height: 90px;">
+              <input type="radio" name="vehical" ng-click="buttonClickable()" ng-model="passObj.vehicalId"
+                     ng-value="type.vehicalTypeId"/>
+              <img ng-src="img/icons/{{type.vehicalTypeName}}.svg" height="80" width="80">
+            </label>
+          </md-card>
+        </div>
+      </div>
+
+      <!--show vehical type-->
+      <div class="row">
+        <div class="col  text-center">
+        <span class="f-w-700"
+              style="font-size:20px;text-transform: uppercase;color: #39135B;">{{passObj.vehicalType}}</span>
+        </div>
+      </div>
+
+      <md-subheader>Select Days</md-subheader>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Amount</span>
+            <input type="number" name="amount" required ng-trim="true" ng-model="passObj.amount" placeholder="ex 10,20">
+            <span class="text-color-red f-s-10" ng-show="addPass.amount.$error.required">Enter amount</span>
+          </label>
+        </div>
+        <div class="col text-center p-t-20">
+          <span class="f-s-30 f-w-700">For</span>
+        </div>
+        <div class="col">
+          <span class="f-s-10">Days</span>
+          <md-select placeholder="Days" ng-model="passObj.days">
+            <md-option ng-value="i" ng-repeat="i in [10,15,20,25,30,31,35,40,45,50,60,75,90,100,150]">{{i}}</md-option>
+          </md-select>
+        </div>
+      </div>
+      {{passObj.days.length}}
+      <div class="row">
+        <md-button class="md-raised custom-btn-100 f-s-14 h-45" ng-disabled="addPass.$invalid || isVehicalTypeSelected"
+                   ng-click="addParkingPasses()">ADD
+        </md-button>
+      </div>
+
+    </form>
+  </ion-content>
+</ion-view>

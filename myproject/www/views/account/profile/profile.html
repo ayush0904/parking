@@ -1,0 +1,69 @@
+<ion-view>
+  <!--Bar header-->
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">View profile</span>
+  </div>
+
+  <ion-content class="has-header-60 custom-background" overflow-scroll="false" has-bouncing="true">
+    <md-card class="custom-card-view">
+      <md-subheader>Personal Profile</md-subheader>
+      <div class="row  padding">
+        <div class="col-3">
+          <img ng-src="{{user.storeIcon ? user.storeIcon:'img/user-icon.png'}}" height="50" width="50">
+        </div>
+        <div class="col">
+          <span class="f-s-15 m-l-10 f-w-500">{{user.userName}}</span><br>
+          <span class="f-s-12 m-l-10 "><md-icon class="m-r-10 f-s-18">email</md-icon>{{user.emailID || "N/A"}}</span><br>
+          <span class="f-s-12 m-l-10 "><md-icon class="m-r-10 f-s-18">phone</md-icon>{{user.phoneNo}}</span><br>
+        </div>
+      </div>
+      <label class="padding f-s-12">Member since : {{user.dateOfRegistration | date :'yyyy-MM-dd'}}</label>
+    </md-card>
+
+    <md-card class="custom-card-view">
+      <md-subheader>Center Profile</md-subheader>
+
+      <div class="row">
+        <div class="col-1">
+         <md-icon>local_parking</md-icon>
+        </div>
+        <div class="col m-l-20">
+          <span class="f-s-12">{{user.centerInfo.centerName}} ({{(user.centerInfo.centerId)}})</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+         <md-icon>location_on</md-icon>
+        </div>
+        <div class="col m-l-20">
+          <span class="f-s-12">{{user.centerInfo.address1 + " " +user.centerInfo.address2 +" "+ user.centerInfo.pincode}}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+         <md-icon>phone</md-icon>
+        </div>
+        <div class="col m-l-20">
+          <span class="f-s-12">{{user.centerInfo.contactNo}}</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+         <md-icon>email</md-icon>
+        </div>
+        <div class="col m-l-20">
+          <span class="f-s-12">{{user.centerInfo.officialEmail || "N/A"}}</span>
+        </div>
+      </div>
+      <label class="padding f-s-12">Member since : {{user.centerInfo.addedOn | date :'yyyy-MM-dd'}}</label>
+
+    </md-card>
+
+  </ion-content>
+
+</ion-view>
+
+

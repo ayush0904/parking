@@ -1,0 +1,65 @@
+<ion-view>
+  <div class="bar bar-header custom-navbar">
+    <md-button class="md-icon-button" ng-click="goBack()" aria-label="More">
+      <md-icon class="text-color-black">arrow_back</md-icon>
+    </md-button>
+    <span class="custom-title">View Pricing</span>
+  </div>
+  <ion-content class="has-header-60 custom-background" overflow-scroll="false">
+    <!--regular pricing-->
+    <md-card md-ink-ripple="true" class="p-relative custom-card-view" ng-click="showPriceUpdateSheet(price)"
+             ng-repeat="price in centerParkingRegularPrice">
+      <span ng-if="price.isWeekendPrice" class="p-absolute f-s-10 input-color-white" style="top: 0;right: 0;background: green;padding: 5px;">Weekends</span>
+      <div class="row">
+        <div class="col-2">
+          <img ng-if="price.vehicalId == 1" ng-src="img/icons/Car.svg" height="60" width="60">
+          <img ng-if="price.vehicalId == 2" ng-src="img/icons/Bike.svg" height="60" width="60">
+          <img ng-if="price.vehicalId == 3" ng-src="img/icons/Cycle.svg" height="60" width="60">
+        </div>
+        <div class="col m-l-20">
+          <div ng-if="price.time_notation == 'H'">
+            <span class="f-s-18 f-w-500">REGULAR PRICE : </span><br>
+            <span class="f-s-14 f-w-500 text-color-grey">&#8377 {{price.price}} FOR {{price.time}} HRS</span><br><br>
+          </div>
+          <div ng-if="price.time_notation == 'NH'">
+            <span class="f-s-18 f-w-500">AFTER REGULAR PRICE : </span><br>
+            <span class="f-s-18 f-w-500 text-color-grey">&#8377 {{price.price}}/{{price.time}}Hrs</span>
+          </div>
+        </div>
+      </div>
+    </md-card>
+    <!--pass-->
+    <md-card class="custom-card-view" ng-repeat="pass in centerParkingPassPrice">
+      <div class="row">
+        <div class="col-2">
+          <img ng-if="pass.vehicalId == 1" ng-src="img/icons/Car.svg" height="60" width="60">
+          <img ng-if="pass.vehicalId == 2" ng-src="img/icons/Bike.svg" height="60" width="60">
+          <img ng-if="pass.vehicalId == 3" ng-src="img/icons/Cycle.svg" height="60" width="60">
+        </div>
+        <div class="col m-l-20">
+          <span class="f-s-18 f-w-500">PRICE : </span>
+          <span class="f-s-18 f-w-500 text-color-grey">{{pass.price}} Rs</span><br>
+          <span class="f-s-18 f-w-500">DAYS : </span>
+          <span class="f-s-18 f-w-500 text-color-grey">{{pass.time}} DAYS</span>
+        </div>
+        <div class="col-2">
+          <img ng-src="img/icons/pass.svg" height="50" width="50">
+        </div>
+      </div>
+    </md-card>
+
+    <div ng-if="isPricingAvailable" class="m-t-80">
+      <div class="row">
+        <div class="col text-center p-b-0">
+          <img ng-src="img/no-pass.png" height="120" width="120">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center p-t-0">
+          <span class="f-s-18 f-w-500">No Pricing has been set Now</span><br>
+          <span class="f-s-14 text-color-grey">Add and start managing</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
