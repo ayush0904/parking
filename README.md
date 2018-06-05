@@ -1,4 +1,4 @@
-Parking Admin App
+# parking-admin-app
 
 This is a hybrid app for parking and can be run on Android or Ios or direclty onto your browser
 
