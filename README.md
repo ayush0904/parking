@@ -8,7 +8,7 @@ www
 Run locally This assumes you already have an emulator setup for iOS or Android. Substitute ios for android below to use Android.
 
 npm install -g ionic cordova
-git clone https://github.com/ionic-in-action/ionic-demo-resort-app.git 
+git clone https://github.com/ayush0904/parking_admin_app 
 cd ionic-demo-resort-app 
 ionic platform 
 add android/ios 
