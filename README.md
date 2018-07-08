@@ -18,7 +18,7 @@ Description :
 
 The parking app is an solution to make paking semi automatic and less hectic for the customers as well as managers.
 Some of the main features of Admin apps are : 
-1 Add parkmens(Parking guys)
+1 Add parkmens(Parking guys)  
 2 Add parking gates
 3 Add weekdays and weekends prices of parking.
 4 Add pass prices
